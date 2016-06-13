@@ -10,6 +10,17 @@ import java.util.stream.Collectors;
 public class WordGraph {
     private HashMap<String, HashMap<String, Integer>> graph;
 
+    public WordGraph(WordGraph[] graphs) {
+        this();
+        for (WordGraph gr : graphs)
+        {
+            gr.getGraph().forEach((k, v) -> graph.merge(k, v, (v1, v2) -> {
+                v1.forEach((key, value) -> v2.merge(key, value, (val1, val2) -> val1 + val2));
+                return v2;
+            }));
+        }
+    }
+
     public WordGraph() {
         graph = new HashMap<>();
     }
@@ -38,9 +49,13 @@ public class WordGraph {
         return graph.containsKey(key) ? graph.get(key) : null;
     }
 
+    public HashMap<String, HashMap<String, Integer>> getGraph() {
+        return graph;
+    }
+
     public void processToPairs()
     {
-        long time_start = System.currentTimeMillis();
+
         HashMap<String, Integer> mergedMap = new HashMap<>();
         for (HashMap.Entry<String, HashMap<String, Integer>> entry : graph.entrySet())
         {
@@ -56,8 +71,8 @@ public class WordGraph {
             if (i % 2 == 0)
                 System.out.println(newList.get(i));
 
-        long time_finish = System.currentTimeMillis();
-        System.out.println("Time elapsed " + Long.toString(time_finish - time_start));
+
+
     }
 
     @Override
