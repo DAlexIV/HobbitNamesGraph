@@ -1,8 +1,7 @@
-package com.company;
+package com.company.tests;
 
+import com.company.common.Utils;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by dalexiv on 03.12.15.

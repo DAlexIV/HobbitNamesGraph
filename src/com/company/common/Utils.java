@@ -1,7 +1,8 @@
-package com.company;
+package com.company.common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by dalexiv on 02.12.15.
@@ -9,15 +10,14 @@ import java.util.List;
 public class Utils {
     private static String[] symbForTrim = {".", ";", "!", "?", "(", ")"};
 
-    public static int trim(List<String> list) {
-        int count = 0;
-        List<String> newList = new ArrayList<>();
-        for (String el : list)
-            if (!el.equals(""))
-                newList.add(el);
-            else
-                ++count;
-        return count;
+    /**
+     * Trims given list of words
+     * @param list initial list with words
+     * @return trimmed list of the words
+     */
+    public static List<String> trim(List<String> list) {
+        return list.stream().filter(word -> !word.equals(""))
+                .collect(Collectors.toList());
     }
 
     public static boolean isBig(String word) {
