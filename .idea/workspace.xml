@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeae3aef-7f54-4273-af95-c4d4a6d2434b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/common/dataLayer/AppConstants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/common/dataLayer/DataRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/common/interfaces/ISumOperator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/common/interfaces/IWordGraphBuilder.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/common/IWordGraphBuilder.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/company/common/Utils.java" afterPath="$PROJECT_DIR$/src/com/company/common/TextUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Hobbit2/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/Hobbit2/com/company/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Hobbit2/com/company/ProcessPartOfArray.class" afterPath="$PROJECT_DIR$/out/production/Hobbit2/com/company/ProcessPartOfArray.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/ProcessPartOfArray.java" afterPath="$PROJECT_DIR$/src/com/company/ProcessPartOfArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/common/WordGraph.java" afterPath="$PROJECT_DIR$/src/com/company/common/WordGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/streams/MainStreams.java" afterPath="$PROJECT_DIR$/src/com/company/streams/MainStreams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/streams/WordGraphBuilderStream.java" afterPath="$PROJECT_DIR$/src/com/company/streams/WordGraphBuilderStream.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/tests/UtilsTest.java" afterPath="$PROJECT_DIR$/src/com/company/tests/UtilsTest.java" />
     </list>
     <ignored path="Hobbit2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,8 +52,8 @@
       <file leaf-file-name="WordGraphBuilderStream.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/streams/WordGraphBuilderStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            <state relative-caret-position="253">
+              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -925,7 +913,7 @@
       <workItem from="1465840347778" duration="12028000" />
       <workItem from="1465915189861" duration="1185000" />
       <workItem from="1465918384753" duration="17510000" />
-      <workItem from="1465970101518" duration="1572000" />
+      <workItem from="1465970101518" duration="1608000" />
     </task>
     <task id="LOCAL-00001" summary="structure is partly visible">
       <created>1465937469714</created>
@@ -934,11 +922,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465937469714</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Stream is done?">
+      <created>1465971692493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1465971692493</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65199000" />
+    <option name="totallyTimeSpent" value="65235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -984,7 +979,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="structure is partly visible" />
-    <option name="LAST_COMMIT_MESSAGE" value="structure is partly visible" />
+    <MESSAGE value="Stream is done?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stream is done?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1192,6 +1188,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1338,8 +1335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/streams/WordGraphBuilderStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        <state relative-caret-position="253">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
