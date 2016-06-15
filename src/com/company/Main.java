@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.common.Utils;
+import com.company.common.TextUtils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -39,7 +39,7 @@ public class Main {
         bookLines.stream().parallel().forEach(line ->
                 Collections.addAll(bookWordsAll, line.split(" ")));
 
-        Utils.trim(bookWordsAll);
+        TextUtils.trim(bookWordsAll);
         System.out.println("Reading file");
 
         System.out.println("Reading file done! Matching words");

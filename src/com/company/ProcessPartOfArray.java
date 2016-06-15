@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.common.Utils;
+import com.company.common.TextUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +27,12 @@ public class ProcessPartOfArray implements Runnable{
     public void run() {
         List<String> cur_words = new ArrayList<String>();
         for (String word : book_words) {
-            if (Utils.isPrep(word) && !cur_words.isEmpty()) {
-                addIfFit(cur_words, Utils.trimAll(word));
+            if (TextUtils.isPrep(word) && !cur_words.isEmpty()) {
+                addIfFit(cur_words, TextUtils.trimAll(word));
                 mGraph.updateList(cur_words);
                 cur_words.clear();
             } else {
-                addIfFit(cur_words, Utils.trimAll(word));
+                addIfFit(cur_words, TextUtils.trimAll(word));
             }
         }
         latch.countDown();
@@ -40,7 +40,7 @@ public class ProcessPartOfArray implements Runnable{
 
 
     private void addIfFit(List<String> cur_words, String word) {
-        if (Utils.isBig(word) && !words.contains(word.toLowerCase()))
+        if (TextUtils.isBig(word) && !words.contains(word.toLowerCase()))
             cur_words.add(word);
     }
 }

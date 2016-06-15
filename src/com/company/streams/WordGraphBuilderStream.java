@@ -1,8 +1,8 @@
 package com.company.streams;
 
-import com.company.common.IWordGraphBuilder;
-import com.company.common.Utils;
+import com.company.common.TextUtils;
 import com.company.common.WordGraph;
+import com.company.common.interfaces.IWordGraphBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,18 +13,15 @@ import java.util.List;
 public class WordGraphBuilderStream implements IWordGraphBuilder {
     public WordGraph buildFromWords(List<String> book_words, List<String> words) {
         WordGraph graph = new WordGraph();
-        List<String> cur_words = new ArrayList<String>();
-        for (String word : book_words) {
-            if (Utils.isPrep(word) && !cur_words.isEmpty()) {
-                addIfFit(cur_words, Utils.trimAll(word), words);
-                graph.updateList(cur_words);
-                cur_words.clear();
-            } else {
-                addIfFit(cur_words, Utils.trimAll(word), words);
-            }
-        }
+        List<String> cur_words = new ArrayList<>();
+        book_words.stream()
+                .peek(word -> addIfFit(cur_words, TextUtils.trimAll(word), words))
+                .filter(word -> TextUtils.isPrep(word) && !cur_words.isEmpty())
+                .forEach(word -> {
+                    graph.updateList(cur_words);
+                    cur_words.clear();
+                });
         return graph;
+
     }
-
-
 }

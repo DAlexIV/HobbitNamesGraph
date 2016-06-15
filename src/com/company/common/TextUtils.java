@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 /**
  * Created by dalexiv on 02.12.15.
  */
-public class Utils {
+public class TextUtils {
     private static String[] symbForTrim = {".", ";", "!", "?", "(", ")"};
 
     /**

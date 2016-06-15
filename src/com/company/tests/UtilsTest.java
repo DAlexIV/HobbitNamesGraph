@@ -1,6 +1,6 @@
 package com.company.tests;
 
-import com.company.common.Utils;
+import com.company.common.TextUtils;
 import org.junit.Test;
 
 /**
@@ -10,6 +10,6 @@ public class UtilsTest {
 
     @Test
     public void testTrimAll() throws Exception {
-        assert(!Utils.trimAll("We,,...ll!!!!").equals("Well"));
+        assert(!TextUtils.trimAll("We,,...ll!!!!").equals("Well"));
     }
 }

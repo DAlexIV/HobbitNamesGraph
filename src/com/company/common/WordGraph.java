@@ -1,5 +1,7 @@
 package com.company.common;
 
+import com.company.common.interfaces.ISumOperator;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,13 +26,15 @@ public class WordGraph {
                                 (value1, value2) -> {
                                     // Found duplicate key there, just skip and return first one
                                     return value1;
-                                }));
+                                })));
             } else {
                 nwList.stream().filter(value -> !value.equals(key)).forEach(value -> {
-                    if (graph.get(key).containsKey(value))
-                        graph.get(key).replace(value, graph.get(key).get(value) + 1);
+                    Map<String, Integer> innerMap = graph.get(key);
+
+                    if (innerMap.containsKey(value))
+                        innerMap.replace(value, innerMap.get(value) + 1);
                     else
-                        graph.get(key).put(value, 1);
+                        innerMap.put(value, 1);
                 });
             }
         });
@@ -44,25 +48,33 @@ public class WordGraph {
         return graph;
     }
 
-    public void processToPairs() {
+    public void processToPairs(int numberOfDisplayedPairs) {
 
-        // TODO refactor into streams?
-        Map<String, Integer> mergedMap = new HashMap<>();
-        for (Map.Entry<String, Map<String, Integer>> entry : graph.entrySet()) {
-            for (Map.Entry<String, Integer> inner_entry : graph.get(entry.getKey()).entrySet())
-                mergedMap.put(entry.getKey() + " - " + inner_entry.getKey(), inner_entry.getValue());
-        }
+        ISumOperator<Integer> sumValues = (value1, value2) -> value1 + value2;
 
-        List<String> newList = mergedMap.entrySet().stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .limit(100)
-                .map(e -> e.getKey() + " " + e.getValue())
-                .collect(Collectors.toList());
+        // TODO refactor into streams? - done
+        List<String> outList =
+                graph.entrySet().stream().map(entry ->
+                        entry.getValue().entrySet().stream()
+                                .collect(Collectors.toMap(innerEntry ->
+                                                entry.getKey() + " - " + innerEntry.getKey(),
+                                        Map.Entry::getValue,
+                                        sumValues)))
+                        .flatMap(map -> map.entrySet().stream())
+                        .collect(Collectors.toMap(Map.Entry::getKey,
+                                Map.Entry::getValue,
+                                sumValues))
+                        .entrySet().stream()
+                        .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                        .limit(2 * numberOfDisplayedPairs)
+                        .map(e -> e.getKey() + " " + e.getValue())
+                        .collect(Collectors.toList());
 
-        IntStream.range(0, newList.size())
-                .filter(n -> n % 2 == 0)
-                .mapToObj(newList::get)
-                .forEach(System.out::println);
+        IntStream.range(0, outList.size()).
+                filter(n -> n % 2 == 0).
+                mapToObj(outList::get).
+                forEach(System.out::println);
+
     }
 
     @Override
